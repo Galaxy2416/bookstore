@@ -1,5 +1,6 @@
 // C++ program of AVL tree that 
 // handles duplicates 
+#pragma once
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string>
