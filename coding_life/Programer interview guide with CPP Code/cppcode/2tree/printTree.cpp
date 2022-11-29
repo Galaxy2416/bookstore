@@ -8,7 +8,7 @@
 using namespace std;
 
 void printTree(Node<int> *head) {
-    cout << INT_MAX << " " << INT_MIN << endl;
+    // cout << INT_MAX << " " << INT_MIN << endl;
     cout << "Binary Tree:" << endl;
     printInOrder(head, 0, "H", 17);
     cout << endl;
