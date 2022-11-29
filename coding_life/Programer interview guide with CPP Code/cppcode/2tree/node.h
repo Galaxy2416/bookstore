@@ -11,7 +11,7 @@ using namespace std;
 template<typename T>
 struct Node
 {
-    Node(T _value):value(_value), left(nullptr), right(nullptr) {}
+    Node(T _value):value(_value), left(nullptr), right(nullptr), parent(nullptr){}
     Node(std::initializer_list<T> list)
     {
         value = *list.begin();
@@ -21,8 +21,10 @@ struct Node
         {
             auto the_node = myqueue.front(); myqueue.pop();
             the_node->left = !isEnd(*it) ? new Node(*it) : nullptr;
-            if(the_node->left != nullptr)
+            if(the_node->left != nullptr) {
                 myqueue.push(the_node->left);
+				the_node->left->parent = the_node;
+			}
             if(++it != list.end())
             {
                 the_node->right = !isEnd(*it) ? new Node(*it) : nullptr;
@@ -31,8 +33,10 @@ struct Node
             {
                  break;
             }
-            if(the_node->right != nullptr)
+            if(the_node->right != nullptr) {
                 myqueue.push(the_node->right);
+				the_node->right->parent = the_node;
+			}
         }
     }
 
@@ -49,6 +53,7 @@ struct Node
     T value;
     Node<T> *left;
     Node<T> *right;
+    Node<T> *parent;
     /* data */
 };
 
