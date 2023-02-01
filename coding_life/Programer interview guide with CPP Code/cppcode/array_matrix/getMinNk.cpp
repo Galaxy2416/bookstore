@@ -109,7 +109,7 @@ int select(vector<int>& arr, int begin, int end, int i)
 	else if (i < pivotRange.first)
 		return select(arr, begin, pivotRange.first - 1, i);
 	else
-		return select(arr, pivotRange.second + 1, end, i - pivotRange.second);
+		return select(arr, pivotRange.second + 1, end, i);
 }
 
 pair<int, int> partition(vector<int>& arr, int begin, int end, int pivotValue)
@@ -175,11 +175,11 @@ vector<int> getMinKnumByBFPRT(const vector<int>& arr, int k)
 int main()
 {
 	ostream_iterator<int> out(cout, ", ");
-	vector<int> v {2,5,1,7,8,4,9,3,6,0};
-	for (int i : getMinKnumByHeap(v, 4))
+	vector<int> v {2,5,1,7,8,4,9,3,6,0, 11, 12, 13, 14, 15, 15, 16, 17, 18};
+	for (int i : getMinKnumByHeap(v, 10))
 		out = i;
 	cout << endl;
-	for (int i : getMinKnumByBFPRT(v, 4))
+	for (int i : getMinKnumByBFPRT(v, 10))
 		out = i;
 	cout << endl;
 
