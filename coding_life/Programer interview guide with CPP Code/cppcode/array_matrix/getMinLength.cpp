@@ -51,3 +51,4 @@ int main()
 	cout << getMinLength({1,3,5,2,4,6,7}) << endl;
 	return 1;
 }
+
